@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>It's Only Some Animal — Love | PLS 519</title>
+<meta name="description" content="How Kazakhstan punishes animal cruelty on paper and loses track of it in practice. A final project for PLS 519, Nazarbayev University, by Love." />
+<style>
+  :root {
+    --cream: #f4ecd8;
+    --cream-dark: #e8ddc0;
+    --ink: #1a1a1a;
+    --ink-soft: #3a3a3a;
+    --muted: #6a6a6a;
+    --burgundy: #6b2232;
+    --burgundy-dark: #4a1721;
+    --rule: #c9b98f;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Times New Roman', serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 18px;
+    -webkit-font-smoothing: antialiased;
+  }
+  /* HERO */
+  .hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    background: #000 url('images/recovering-kitty.jpg') center center / cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px 50px;
+    color: #f4ecd8;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0.75) 100%);
+  }
+  .hero-top, .hero-bottom, .hero-main { position: relative; z-index: 2; }
+  .hero-top {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase;
+    opacity: 0.85;
+  }
+  .hero-main { margin-top: auto; margin-bottom: 40px; max-width: 900px; }
+  .hero h1 {
+    font-size: clamp(48px, 9vw, 120px);
+    line-height: 0.95;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    font-style: italic;
+    margin-bottom: 24px;
+  }
+  .hero .sub {
+    font-size: clamp(16px, 1.6vw, 22px);
+    max-width: 650px;
+    font-style: normal;
+    opacity: 0.9;
+    line-height: 1.4;
+  }
+  .hero-bottom {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+    opacity: 0.75;
+  }
+  .hero-bottom .scroll { display: flex; align-items: center; gap: 10px; }
+  .hero-bottom .scroll::after { content: '↓'; font-size: 18px; }
+
+  /* MAIN LAYOUT */
+  main {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 80px 30px 60px;
+  }
+  .lede {
+    font-size: 24px;
+    line-height: 1.5;
+    font-style: italic;
+    color: var(--ink-soft);
+    margin-bottom: 60px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .lede::first-letter {
+    font-size: 72px; float: left; line-height: 0.85;
+    margin-right: 10px; margin-top: 6px;
+    font-style: normal; color: var(--burgundy);
+    font-weight: 500;
+  }
+
+  /* SECTIONS */
+  section { margin-bottom: 80px; }
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--burgundy);
+    margin-bottom: 10px;
+    font-family: 'Courier New', monospace;
+  }
+  h2 {
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 30px;
+    letter-spacing: -0.01em;
+  }
+  h2 em { font-style: italic; color: var(--burgundy); }
+  h3 {
+    font-size: 22px;
+    font-weight: 500;
+    margin-top: 40px;
+    margin-bottom: 14px;
+    color: var(--ink);
+  }
+  p { margin-bottom: 20px; }
+  p + p { text-indent: 0; }
+
+  a { color: var(--burgundy); text-decoration: underline; text-underline-offset: 2px; }
+  a:hover { color: var(--burgundy-dark); }
+
+  /* PULL QUOTE */
+  blockquote {
+    margin: 36px -20px;
+    padding: 24px 30px;
+    border-left: 3px solid var(--burgundy);
+    background: var(--cream-dark);
+    font-size: 20px;
+    line-height: 1.5;
+    font-style: italic;
+    color: var(--ink);
+  }
+  blockquote cite {
+    display: block;
+    margin-top: 10px;
+    font-size: 13px;
+    font-style: normal;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+
+  /* CASE CARD */
+  .case {
+    margin: 24px 0;
+    padding: 18px 20px;
+    border: 1px solid var(--rule);
+    background: rgba(255,255,255,0.3);
+  }
+  .case .meta {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--burgundy);
+    margin-bottom: 6px;
+    font-family: 'Courier New', monospace;
+  }
+  .case .verdict {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 6px;
+    font-style: italic;
+  }
+
+  /* STAT BIG */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 30px;
+    margin: 40px 0;
+    padding: 30px 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .stat { text-align: center; }
+  .stat .num {
+    font-size: 48px;
+    line-height: 1;
+    color: var(--burgundy);
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 400;
+  }
+  .stat .label {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.3;
+  }
+
+  /* IMAGE BLOCK */
+  .figure {
+    margin: 50px -60px;
+  }
+  .figure img {
+    width: 100%; height: auto; display: block;
+    filter: grayscale(0.2) contrast(1.05);
+  }
+  .figure .caption {
+    font-size: 13px;
+    color: var(--muted);
+    padding: 10px 60px 0;
+    font-style: italic;
+  }
+
+  /* CHART */
+  .chart-wrap {
+    margin: 40px 0;
+    padding: 24px;
+    background: #fff;
+    border: 1px solid var(--rule);
+  }
+  .chart-title {
+    font-size: 16px;
+    margin-bottom: 4px;
+    color: var(--ink);
+  }
+  .chart-source {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 12px;
+    font-family: 'Courier New', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* NUMBERED LIST */
+  ol.demands, ol.conditions {
+    margin: 24px 0 24px 0;
+    padding-left: 0;
+    counter-reset: item;
+    list-style: none;
+  }
+  ol.demands li, ol.conditions li {
+    counter-increment: item;
+    padding: 14px 0 14px 50px;
+    position: relative;
+    border-bottom: 1px solid var(--rule);
+  }
+  ol.demands li:last-child, ol.conditions li:last-child { border-bottom: none; }
+  ol.demands li::before, ol.conditions li::before {
+    content: counter(item, decimal-leading-zero);
+    position: absolute;
+    left: 0; top: 14px;
+    font-family: 'Courier New', monospace;
+    color: var(--burgundy);
+    font-size: 14px;
+  }
+
+  ul.plain {
+    margin: 20px 0 20px 20px;
+    list-style: none;
+  }
+  ul.plain li {
+    padding: 6px 0;
+    position: relative;
+    padding-left: 20px;
+  }
+  ul.plain li::before {
+    content: '—';
+    position: absolute; left: 0;
+    color: var(--burgundy);
+  }
+
+  /* VERDICT */
+  .verdict-block {
+    margin: 60px -30px;
+    padding: 40px 50px;
+    background: var(--ink);
+    color: var(--cream);
+  }
+  .verdict-block .section-label { color: var(--cream); opacity: 0.6; }
+  .verdict-block h2 { color: var(--cream); }
+  .verdict-block p { color: var(--cream); }
+  .verdict-block a { color: var(--cream); }
+  .verdict-block ol.conditions li { border-color: rgba(255,255,255,0.15); }
+  .verdict-block ol.conditions li::before { color: var(--cream); opacity: 0.6; }
+
+  /* REFS */
+  .refs {
+    margin-top: 80px;
+    padding-top: 40px;
+    border-top: 2px solid var(--ink);
+    font-size: 14px;
+  }
+  .refs ol { padding-left: 24px; }
+  .refs li { margin-bottom: 10px; line-height: 1.5; }
+  .refs a { word-break: break-word; }
+
+  /* TRANSPARENCY */
+  .transparency {
+    margin-top: 60px;
+    padding: 30px;
+    background: var(--cream-dark);
+    border-left: 4px solid var(--burgundy);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .transparency h3 { margin-top: 0; font-size: 18px; }
+
+  footer {
+    text-align: center;
+    padding: 60px 30px 40px;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 720px) {
+    body { font-size: 17px; }
+    .hero { padding: 24px 24px; }
+    main { padding: 50px 22px 40px; }
+    .figure { margin: 40px -22px; }
+    .figure .caption { padding-left: 22px; padding-right: 22px; }
+    blockquote { margin-left: -10px; margin-right: -10px; padding: 20px; font-size: 18px; }
+    .verdict-block { margin-left: -22px; margin-right: -22px; padding: 30px 24px; }
+    .stat .num { font-size: 38px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-top">
+    <span>PLS 519 · Nazarbayev University</span>
+    <span>November 2026</span>
+  </div>
+  <div class="hero-main">
+    <h1>It's Only<br />Some Animal</h1>
+    <p class="sub">How Kazakhstan punishes animal cruelty on paper and loses track of it in practice — and the AI registry that could change that.</p>
+  </div>
+  <div class="hero-bottom">
+    <span>By Love</span>
+    <span class="scroll">Scroll</span>
+  </div>
+</header>
+
+<main>
+
+<p class="lede">On 22 September 2026, a 43-year-old man in Zhambyl region bit a cat on a live TikTok stream. Hundreds watched. Police identified him and issued an administrative fine. Their statement: <em>"Домашнее животное не пострадало"</em> — the pet was not harmed.<sup>[1]</sup></p>
+
+<!-- SECTION 1: PROBLEM -->
+<section id="problem">
+  <div class="section-label">Section 01 — The Problem</div>
+  <h2>A law that exists, <em>and doesn't</em>.</h2>
+
+  <p>Kazakhstan is not a country without animal protection laws. Article 316 of the Criminal Code criminalises cruelty to animals. The 2021 Law "On Responsible Treatment of Animals" declares animals "capable of experiencing pain and physical suffering" and prohibits cruelty toward them.<sup>[2]</sup> On 19 May 2026, President Tokayev signed Law No. 292-VIII, which raised maximum criminal sanctions to three years' imprisonment and legalised, under certain conditions, the state euthanasia of unclaimed stray dogs.<sup>[3]</sup></p>
+
+  <p>What Kazakhstan does not have is a system that makes these laws work. Of 417 cases filed under Article 316 over a 10.5-year period, only 31 reached trial — a prosecution rate of 7.4 per cent.<sup>[4]</sup> Even when they do reach court, the sentences are light. In 2020, a man in Aktau was filmed on CCTV jumping on a cat's head; he was convicted under Article 316 Part 1 and sentenced to 60 hours of community work. The regional court felt the need to defend the sentence publicly on its Facebook page after online outrage.<sup>[5]</sup> In Kentau, a man beat his neighbour's dog, Sky, with a shovel; the dog survived with a hip fracture, spinal cord contusion and concussion. The criminal case was dismissed on the grounds that "no injuries were found on the dog," and police pressured the owner to reconcile with the attacker.<sup>[6]</sup></p>
+
+  <p>The method of cruelty has shifted. In 2013, a teenager body-slammed a donkey for a viral video.<sup>[7]</sup> In 2020, a Pavlodar resident poured 70 per cent vinegar on a stray cat; this became the first regional conviction under Article 316 ever.<sup>[8]</sup> In April 2026, a blogger in Semey ran a kitten through a washing-machine cycle; she was fined.<sup>[9]</sup> By late 2026, cruelty moved live: the TikTok bite case in Zhambyl in September, a woman beating a cat on TikTok in October, and a separate case of a cat tortured "on live stream for donations."<sup>[10][11][12]</sup> The platforms changed. The outcomes did not.</p>
+
+  <div class="case">
+    <div class="meta">22 September 2026 · Zhambyl region</div>
+    A 43-year-old man live-streamed himself biting a cat on TikTok. Police identified and detained him, issued an administrative fine, and warned that a repeat offence could attract criminal liability.
+    <div class="verdict">Police statement: "The pet was not harmed."</div>
+  </div>
+
+  <div class="case">
+    <div class="meta">17 October 2026 · Location not published</div>
+    A Kazakhstani woman live-streamed herself beating and verbally abusing a cat on TikTok in front of hundreds of viewers. When commenters asked her to stop, she replied: <em>"Я хочу ее обнимать, не канает, хочет она или нет."</em>
+    <div class="verdict">No police response reported.</div>
+  </div>
+
+  <p>The Interior Minister has himself conceded the problem. In a public briefing, Minister Yerlan Turgumbayev said Article 316's sanctions "are very small" and that the ministry would propose tougher penalties.<sup>[13]</sup> Yet five years later, those sanctions remain the ceiling, and even they are rarely reached.</p>
+
+  <p><strong>The social-science question:</strong> why does a state that has written laws against animal cruelty fail to enforce them, and what would it take to make the enforcement visible? This is not a question of missing legislation. It is a question of missing infrastructure: no central record of which cases are opened, which are dismissed, and which end with 60 hours of community work. In the absence of that record, cruelty continues not because the state is helpless, but because it is unwatched.</p>
+</section>
+
+<!-- FIGURE -->
+<figure class="figure">
+  <img src="images/vid-adam-cat.jpg" alt="A black-and-white close-up of a street cat, looking down." />
+  <div class="caption">"A black and white photo of a cat." Photo by Vid Adam on Unsplash.</div>
+</figure>
+
+<!-- SECTION 2: DATA -->
+<section id="data">
+  <div class="section-label">Section 02 — Background &amp; Data</div>
+  <h2>The numbers Kazakhstan <em>keeps</em>, and the ones it doesn't.</h2>
+
+  <p>There are two kinds of killing to count in Kazakhstan: cruelty by individuals, which Article 316 is meant to punish, and culling by the state, which is now explicitly legal. The first is under-counted. The second is counted in two incompatible ways, and in neither is the question asked whether it works.</p>
+
+  <h3>What Kazakhstan does count</h3>
+
+  <p>The General Prosecutor's Office recorded 127 criminal cases of animal cruelty under Article 316 in 2025, an 18 per cent increase over the previous year. Thirty-four of those were in Almaty and Almaty region.<sup>[14]</sup> A 2026 analysis by Vlast.kz, drawing on Ministry of Interior statistics, reports 74,296 Article 73 cases of cruelty and negligence in 2024, rising to 82,478 in 2025; of these, 55 per cent were dismissed with no action taken.<sup>[15]</sup></p>
+
+  <p>The state also counts what it kills. According to the World Organisation for Animal Health (WOAH), in the first 8 months of 2023 Kazakhstan caught 131,807 dogs and 7,421 cats; it killed 104,092 dogs (79 per cent) and 5,156 cats (69 per cent).<sup>[16]</sup> In 2022, only 58 dogs were sterilised in the entire country while more than 80,000 were culled. In 2024, 85.3 per cent of 268,000 captured animals were killed. In 2025, of roughly 276,000 dogs captured, 12.6 per cent were sterilised and nearly 85 per cent euthanised.<sup>[17]</sup> Shymkent city alone budgets 41 million tenge per year for culling.<sup>[18]</sup></p>
+
+  <div class="stats">
+    <div class="stat"><span class="num">7.4%</span><span class="label">of Article 316 cases over 10.5 years reached trial</span></div>
+    <div class="stat"><span class="num">55%</span><span class="label">of 2025 Article 73 cases dismissed with no action</span></div>
+    <div class="stat"><span class="num">~85%</span><span class="label">of captured strays killed in 2025</span></div>
+    <div class="stat"><span class="num">58</span><span class="label">dogs sterilised nationwide in 2022</span></div>
+  </div>
+
+  <h3>What Kazakhstan does not count</h3>
+
+  <p>At a WOAH regional seminar in December 2025, representatives of Kazakhstan's Ministry of Agriculture confirmed what activists have been saying for years: there is no unified database for dogs and cats in the country.<sup>[16]</sup> The existing pet registration platform, Tanba (<a href="https://tanba.kezekte.kz">tanba.kezekte.kz</a>), is underused. Chipping is not mandatory. Each akimat (regional administration) sets its own capture and euthanasia timeframes under the May 2026 law, and the results are not aggregated.<sup>[3]</sup></p>
+
+  <p>This is why Kazakhstan can simultaneously claim that cruelty cases are rising, that enforcement is improving, and that mass killing is necessary, without ever showing whether any of these are true. The data that would test the claims does not exist.</p>
+
+  <p>A secondary silence: the state does not count owned animals killed in state captures. Volunteer groups have repeatedly documented cases of pet dogs allowed outside being shot or taken by capture crews paid per animal, but there is no central record of these deaths, no requirement to scan for a microchip before killing, and no legal recourse for the owner.<sup>[19]</sup></p>
+
+  <!-- CHART -->
+  <div class="chart-wrap">
+    <div class="chart-title">Kazakhstan: dogs captured vs. sterilised vs. killed, selected years</div>
+    <svg viewBox="0 0 700 360" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;" aria-label="Chart showing capture, sterilisation and killing of dogs in Kazakhstan">
+      <!-- Axes -->
+      <line x1="60" y1="300" x2="680" y2="300" stroke="#1a1a1a" stroke-width="1"/>
+      <line x1="60" y1="20" x2="60" y2="300" stroke="#1a1a1a" stroke-width="1"/>
+
+      <!-- Y labels -->
+      <text x="55" y="305" text-anchor="end" font-family="monospace" font-size="10" fill="#6a6a6a">0</text>
+      <text x="55" y="235" text-anchor="end" font-family="monospace" font-size="10" fill="#6a6a6a">80k</text>
+      <text x="55" y="165" text-anchor="end" font-family="monospace" font-size="10" fill="#6a6a6a">160k</text>
+      <text x="55" y="95" text-anchor="end" font-family="monospace" font-size="10" fill="#6a6a6a">240k</text>
+      <text x="55" y="25" text-anchor="end" font-family="monospace" font-size="10" fill="#6a6a6a">320k</text>
+      <line x1="60" y1="230" x2="680" y2="230" stroke="#c9b98f" stroke-width="0.5" stroke-dasharray="2,2"/>
+      <line x1="60" y1="160" x2="680" y2="160" stroke="#c9b98f" stroke-width="0.5" stroke-dasharray="2,2"/>
+      <line x1="60" y1="90" x2="680" y2="90" stroke="#c9b98f" stroke-width="0.5" stroke-dasharray="2,2"/>
+      <line x1="60" y1="20" x2="680" y2="20" stroke="#c9b98f" stroke-width="0.5" stroke-dasharray="2,2"/>
+
+      <!-- Bars: 3 clusters of 3 bars (captured, sterilised, killed) for 2022, 2024, 2025 -->
+      <!-- Scale: 1 unit = (280 / 320000) -->
+      <!-- 2022: captured ≈ 80k (data uncertain), sterilised 58 (tiny), killed 80k -->
+      <!-- Use conservative 2022 captured = 85k, killed = 80k -->
+      <!-- 2024: captured 268k, killed 228.6k (85.3%), sterilised small -->
+      <!-- 2025: captured 276k, sterilised ~34.8k (12.6%), killed ~234.6k (85%) -->
+
+      <!-- Bar width 40, spacing within cluster 5, cluster spacing 80 -->
+
+      <!-- 2022 cluster -->
+      <rect x="110" y="226" width="35" height="74" fill="#6b2232" opacity="0.4"/>
+      <rect x="148" y="300" width="35" height="0.1" fill="#6b2232" opacity="0.7"/>
+      <rect x="186" y="230" width="35" height="70" fill="#1a1a1a"/>
+      <text x="166" y="320" text-anchor="middle" font-family="monospace" font-size="11" fill="#1a1a1a">2022</text>
+
+      <!-- 2024 cluster -->
+      <rect x="290" y="65" width="35" height="235" fill="#6b2232" opacity="0.4"/>
+      <rect x="328" y="296" width="35" height="4" fill="#6b2232" opacity="0.7"/>
+      <rect x="366" y="100" width="35" height="200" fill="#1a1a1a"/>
+      <text x="346" y="320" text-anchor="middle" font-family="monospace" font-size="11" fill="#1a1a1a">2024</text>
+
+      <!-- 2025 cluster -->
+      <rect x="470" y="59" width="35" height="241" fill="#6b2232" opacity="0.4"/>
+      <rect x="508" y="270" width="35" height="30" fill="#6b2232" opacity="0.7"/>
+      <rect x="546" y="95" width="35" height="205" fill="#1a1a1a"/>
+      <text x="526" y="320" text-anchor="middle" font-family="monospace" font-size="11" fill="#1a1a1a">2025</text>
+
+      <!-- Legend -->
+      <rect x="110" y="340" width="12" height="12" fill="#6b2232" opacity="0.4"/>
+      <text x="128" y="350" font-family="monospace" font-size="10" fill="#3a3a3a">Captured</text>
+      <rect x="220" y="340" width="12" height="12" fill="#6b2232" opacity="0.7"/>
+      <text x="238" y="350" font-family="monospace" font-size="10" fill="#3a3a3a">Sterilised</text>
+      <rect x="330" y="340" width="12" height="12" fill="#1a1a1a"/>
+      <text x="348" y="350" font-family="monospace" font-size="10" fill="#3a3a3a">Killed</text>
+    </svg>
+    <div class="chart-source">Sources: WOAH 2023 report; Global Voices (June 2026) citing Ministry of Agriculture data; Times of Central Asia. 2022 "captured" estimated from "80,000+ culled."</div>
+  </div>
+
+  <p>The chart tells the story the state cannot deny: capture numbers rose. Killing numbers rose with them. Sterilisation, the humane alternative the 2021 law was meant to mainstream, moved from 58 animals in 2022 to roughly 34,800 in 2025. The ratio of killed to sterilised in 2025 is approximately 7 to 1.</p>
+</section>
+
+<!-- SECTION 3: RESEARCH -->
+<section id="research">
+  <div class="section-label">Section 03 — Current State of Research</div>
+  <h2>What we know, by approach.</h2>
+
+  <p>Research on animal cruelty in Kazakhstan sits across three broad bodies of work. Each illuminates part of the problem; none has shaped Kazakhstan's own enforcement design.</p>
+
+  <h3>1. Kazakhstani legal scholarship on Article 316</h3>
+  <p>Lawyer Zhangeldy Suleymanov, writing for CABAR.asia, has argued that Article 316's narrow definition of the <em>corpus delicti</em> is the structural reason prosecutions fail. The article only recognises cruelty that produces severe injury or death, and there is no clear statutory definition of "severe injury." In practice, police dismiss cases when the animal survives, as in the Kentau shovel attack.<sup>[6]</sup> A 2024 analysis at MNU (Almaty) echoes this, identifying "a significant number of problems" in enforcement practice under both Article 316 and Articles 407-1 and 407-2 of the Code of Administrative Offences.<sup>[20]</sup> This literature agrees on the diagnosis — the law is under-defined — but stops short of proposing infrastructure that would force visibility onto enforcement.</p>
+
+  <h3>2. "The Link": animal cruelty and interpersonal violence</h3>
+  <p>A substantial international literature establishes that intentional animal cruelty is a reliable warning sign of violence against people. Addington and Randour (2024), using the FBI's National Incident-Based Reporting System data, find that intentional cruelty (as opposed to neglect) overwhelmingly co-occurs with another crime, often intimate partner violence or family violence; neglect does not.<sup>[21]</sup> Earlier work in the United States found that in four of five Wisconsin battering cases, abusers had also been violent toward pets, and that 88 per cent of New Jersey families with physical child abuse had records of animal abuse.<sup>[22]</sup> The FBI added animal cruelty as a trackable offence in 2014 precisely to enable this kind of research.<sup>[23]</sup> This literature is not used in Kazakhstani policy design, even though Kazakhstan passed a landmark domestic-violence law in April 2024 following the femicide of Saltanat Nukenova.<sup>[24]</sup></p>
+
+  <h3>3. The carceral critique of animal-abuser registries</h3>
+  <p>The United States has moved further than Kazakhstan on cruelty enforcement, but not without controversy. Since Suffolk County, New York, launched the first US animal abuser registry in 2010, several New York counties, Tennessee and Florida have followed.<sup>[25]</sup> Harvard Law Review (2021) and Marceau in <em>Carceral Logics beyond Incarceration</em> (2022) argue that these registries risk repeating the failures of the sex-offender registry: expensive to maintain (~$468,000 initial cost in Washington State estimates), of unproven deterrent value, and apt to target the wrong people — hoarders with mental illness, youth, or those operating in economic or cultural contexts police do not understand.<sup>[26][27]</sup> The ASPCA itself opposes public abuser registries on these grounds.<sup>[28]</sup> This critique matters for Kazakhstan because any registry built here must avoid designing in the same failures.</p>
+
+  <h3>The gap</h3>
+  <p>Kazakhstani legal scholarship diagnoses Article 316's weakness but does not propose data infrastructure. "The Link" literature shows cruelty predicts human violence but has not been applied to Kazakhstan's domestic-violence policy architecture. The carceral critique warns against public registries, but has not been tested against a non-public, state-internal registry whose purpose is accountability rather than shaming. This project sits in that gap: it asks what data infrastructure Kazakhstan would need to make its own laws work, informed by what has failed elsewhere.</p>
+</section>
+
+<!-- SECTION 4: PROPOSAL -->
+<section id="solution">
+  <div class="section-label">Section 04 — The AI-Assisted Solution</div>
+  <h2><em>Tanba+</em>: a national registry for a visible system.</h2>
+
+  <p>The proposal is to extend Kazakhstan's existing pet-registration platform, Tanba, into a three-layer national registry linking the state's handling of animals, the courts' handling of cruelty cases, and (through warrant-controlled access only) the police's handling of domestic violence. AI's role is specific: pattern detection, standardised processing of video evidence, and the automated aggregation that makes dashboards possible. No decision in this system is made by AI. Every flag is reviewed by a human.</p>
+
+  <h3>Part 1: Animal-side registry</h3>
+  <p>Mandatory chipping for all owned dogs and cats, with a one-year transition subsidised from the current culling budget. Every shelter intake logged with date, location, health status, photographs, and the eventual outcome (sterilised, adopted, euthanised). Every euthanasia requires a veterinarian's signature with name and licence number, and the record is public. Each akimat's capture, sterilisation and euthanasia rates appear on a public monthly dashboard. This directly answers Demand 5 of the 100,000-signature e-Petition П-2026-00000313, submitted to the Ministry of Ecology on 8 May 2026, which asked for "a mandatory unified national database."<sup>[29]</sup></p>
+
+  <h3>Part 2: Case-outcome registry</h3>
+  <p>Every Article 316 criminal case and every Article 407 administrative case logged with: case ID, date, region, charge, verdict, sentence, judge name. Public, searchable, downloadable. The 2020 Aktau cat case required the regional court to defend itself on Facebook because no one could find its ruling. A registry removes that friction. AI's role here is tagging and aggregation: classifying case types, flagging regional disparities in sentencing, surfacing patterns the Ministry has no incentive to publish.</p>
+
+  <h3>Part 3: Cross-reference layer (internal only, warrant-controlled)</h3>
+  <p>The "Link" literature says intentional animal cruelty predicts interpersonal violence. A cross-reference layer, accessible only to police on warrant or to social services on documented risk, would flag households where an animal-cruelty case and a domestic-violence case cluster. This is not a public abuser registry — avoiding the ASPCA's and the Harvard Law Review's warnings — but a referral mechanism inside the system. A flag triggers a human review, never an automatic action.</p>
+
+  <h3>Who runs it</h3>
+  <p>The Ministry of Ecology and Natural Resources (the e-Petition's addressee) as lead agency, with the Ministry of Internal Affairs responsible for the case-outcome layer, and an independent oversight commission including Zverohelp Astana, Inucobo (led by Lillia Sarsenova), StopOtlov Foundation, and the Union of Shelters. All data public from day one with the exception of Part 3, which is warrant-controlled.</p>
+
+  <h3>Two real case studies</h3>
+
+  <p><strong>Georgia's national stray-animal database.</strong> CABAR.asia documents that Georgia (the country) has built a single national database of stray animals, a point its reporting raises as a direct comparator for what Kazakhstan lacks.<sup>[30]</sup> The Georgian model demonstrates that a Central Asian / Caucasus state with comparable resources can operate a functioning database; Kazakhstan's absence of one is a political choice, not a technical limitation.</p>
+
+  <p><strong>The FBI's NIBRS animal-cruelty collection (United States, 2014–).</strong> The FBI's decision to track animal cruelty in NIBRS has enabled the research literature on "the Link" (Addington &amp; Randour 2024 cited above). Its lesson for Kazakhstan is positive: adding animal cruelty to a national reporting system produces data that researchers and prosecutors can use. Its lesson is also cautionary: NIBRS is a government-held dataset with restricted access, which has drawn critique for methodological opacity.<sup>[31]</sup> Kazakhstan's version should be public by default.</p>
+
+  <h2 style="margin-top:60px;">The Bill</h2>
+
+  <h3>Environmental</h3>
+  <p>The system is a national chip database, a case-tagging layer, and a public dashboard — not a large generative model. The compute footprint is modest: on the order of a medium government web service. However, Kazakhstan's electricity grid is roughly 70 per cent coal-fired, so even modest server energy carries carbon cost. Image classification for shelter intake photos, if used, adds load; this should be cached and reviewed in batches, not run on every upload.</p>
+
+  <h3>Economic</h3>
+  <p>The state currently spends measurable sums on culling: Shymkent alone budgets 41 million tenge per year.<sup>[18]</sup> Extended nationally, culling costs run into billions of tenge annually. The proposal is that the registry's build and running costs come from this existing budget, not from additional allocations. Cities that reduce culling by increasing sterilisation and adoption (both of which the registry tracks) free resources for the registry itself. The alternative — the registry as an "add-on" to continued culling — would fail on political grounds and on the terms of the e-Petition.</p>
+
+  <h3>Labor</h3>
+  <p>Veterinarians become mandatory reporters of suspected cruelty (modelled on child-abuse mandatory reporting in other jurisdictions), with legal protection. This adds work, but centralises what is now informal and scattered. Shelter workers' recording work increases in the short term; over time, standardised forms reduce it. The capture-crew contracting model (per-animal payment) would need to change to a fixed-fee or outcome-based contract to remove the perverse incentive to maximise capture and killing.</p>
+
+  <h3>Political and governance</h3>
+  <p>Kazakhstan's Law No. 230-VIII "On Artificial Intelligence" (signed November 2025, in force January 2026) requires data localisation and purpose limitation; a Kazakhstani registry hosted on Kazakhstani servers satisfies both, while rejecting foreign-cloud alternatives.<sup>[32]</sup> The registry sits at a sensitive interagency boundary: the Ministry of Ecology lacks criminal-case authority; the Ministry of Internal Affairs tends toward surveillance. The oversight commission, with civil-society seats held by Zverohelp Astana, Inucobo and StopOtlov Foundation, is the mechanism by which the two are kept honest. Without it, Part 3 (the cross-reference layer) becomes a surveillance tool.</p>
+
+  <h3>Data ethics</h3>
+  <p>The animal-side and case-outcome layers (Parts 1 and 2) contain no personally sensitive human data beyond veterinarian names and judge names, both of which are already public in Kazakhstan. The cross-reference layer (Part 3) is the ethical hinge. Access must be warrant-controlled, logged, and audited by the oversight commission. Social-services referrals triggered by a flag must themselves be reviewed by a human before any contact with the household. The system must never generate a public list of "potential abusers." This is what distinguishes the proposal from the US registry model the ASPCA opposes.</p>
+</section>
+
+<!-- VERDICT -->
+<div class="verdict-block">
+  <div class="section-label">The Verdict</div>
+  <h2>Yes, <em>but only</em>.</h2>
+
+  <p>Should Kazakhstan build this? Yes — but only under five conditions. A registry built without them becomes a more efficient killing machine, which is not what citizens asked for in the e-Petition and not what the research literature supports.</p>
+
+  <ol class="conditions">
+    <li><strong>Public by default, downloadable by akimat and month.</strong> Dashboards that cannot be interrogated are decoration. The registry must publish raw data, not just visualisations.</li>
+    <li><strong>No public-shaming of individual offenders.</strong> The cross-reference layer (Part 3) is internal and warrant-controlled. Conviction records already exist in the public case-outcome registry (Part 2); duplicating them as a "sex-offender-style" public list reproduces failures the ASPCA and Harvard Law Review have documented.</li>
+    <li><strong>Funded from the existing culling budget, not in addition.</strong> Cities must face the choice. Added money without substitution means the state does both: kills at the current rate and runs a registry alongside. That is not the demand the e-Petition made.</li>
+    <li><strong>AI flags patterns, never individuals.</strong> Every flag (a regional sentencing anomaly, a household co-occurrence) triggers human review before any action. No automated enforcement, no scoring of persons, no behavioural prediction on individual animals (which would reproduce the "aggression" loophole the May 2026 law created).</li>
+    <li><strong>Civil-society representation on the oversight commission is legally binding, not advisory.</strong> Zverohelp Astana, Inucobo and StopOtlov Foundation have earned this role through the 100,000-signature campaign. Without binding seats, the commission becomes a consultative fig leaf.</li>
+  </ol>
+
+  <p>If these conditions hold, the registry can do what punishment alone has not: make the state's own choices visible, give prosecutors the evidence to raise the Article 316 conviction rate above 7 per cent, and connect animal-cruelty records to the domestic-violence prevention system Kazakhstan already says it wants. If they do not hold, this project's honest recommendation is that Kazakhstan should not build the registry at all, and should instead redirect the culling budget to the sterilisation programs the 2021 law already requires.</p>
+
+  <p>Punishment on paper is not the same as accountability. Kazakhstan does not need a harsher law. It needs a record.</p>
+</div>
+
+<!-- TRANSPARENCY -->
+<div class="transparency">
+  <h3>AI Transparency Statement</h3>
+  <p>This project was produced with Claude (Anthropic), under the AI co-working policy of PLS 519. Claude helped locate and verify sources, summarise academic literature, draft text, build this website, and draw the chart. All factual claims were verified by opening each source and reading the sentence that supports them. Direct quotations from Russian-language sources were transcribed verbatim from the originals.</p>
+  <p>The following choices and judgements are the author's own: the topic selection; the decision to centre the research question on enforcement rather than legislation; the opening with the TikTok case; the three-layer structure of the Tanba+ proposal; the five conditions of the verdict; and the decision to reject a public abuser registry despite civil-society calls for one, in favour of an internal, warrant-controlled cross-reference layer.</p>
+  <p>Material rejected during drafting includes an earlier framing in which the May 2026 law was presented as unopposed mass-euthanasia legislation; this was corrected after the author provided evidence of the Senate's April 2026 revisions and the final text of Law No. 292-VIII. An initial image set was also rejected because its provenance could not be verified. The hero image is the author's own photograph.</p>
+  <p>The AI Process Log for this project is submitted separately on Moodle.</p>
+</div>
+
+<!-- REFS -->
+<div class="refs">
+  <h3 style="margin-top:0;">References</h3>
+  <ol>
+    <li>Tengrinews.kz, "Казахстанца доставили в полицию за прямой эфир с кошкой," 22 September 2026. <a href="https://tengrinews.kz/news/kazahstantsa-dostavili-politsiyu-pryamogo-efira-koshkoy-609105/">tengrinews.kz</a></li>
+    <li>Law of the Republic of Kazakhstan "On Responsible Treatment of Animals" (adopted 30 December 2021).</li>
+    <li>Zakon.kz, "Эвтаназия бродячих собак в целях регулирования их численности разрешается с 20 июля," 17 July 2026. Law of the Republic of Kazakhstan No. 292-VIII of 19 May 2026. <a href="https://www.zakon.kz/pravo/6525104-evtanaziya-brodyachikh-sobak-v-tselyakh-regulirovaniya-ikh-chislennosti-razreshaetsya-s-20-iyulya.html">zakon.kz</a></li>
+    <li>CABAR.asia, "Kazakhstan drafts new animal protection law," citing data from the Committee for Legal Statistics and Special Records of the General Prosecutor's Office. <a href="https://cabar.asia/en/kazakhstan-drafts-new-animal-protection-law">cabar.asia</a></li>
+    <li>NUR.KZ, "Суд Мангистау объяснил мягкий приговор казахстанцу, прыгнувшему на голову кошки." <a href="https://www.nur.kz/incident/crime/1992024-sud-mangistau-obyasnil-myagkiy-prigovor-kazahstantsu-prygnuvshemu-na-golovu-koshki/">nur.kz</a></li>
+    <li>Caspian Post, "In Kazakhstan, the Fight Against Animal Cruelty is Far from Over." <a href="https://caspianpost.com/stories/in-kazakhstan-the-fight-against-animal-cruelty-is-far-from-over">caspianpost.com</a></li>
+    <li>Eurasianet, "Cruelty to animals has hit the headlines in Kazakhstan." <a href="https://eurasianet.org/node/76046">eurasianet.org</a></li>
+    <li>NUR.KZ, "Казахстанке, облившей кошку уксусом, вынесли приговор." <a href="https://www.nur.kz/society/2064724-kazahstanke-oblivshey-koshku-uksusom-vynesli-prigovor/">nur.kz</a></li>
+    <li>Kursiv.media, "Kitten death in a washing machine sparks outrage online," 20 April 2026. <a href="https://kz.kursiv.media/en/2026-04-20/engk-yeri-kitten-death-in-a-washing-machine-sparks-outrage-online/">kursiv.media</a></li>
+    <li>Tengrinews.kz, cat-bite TikTok case, 22 September 2026 (same as [1]).</li>
+    <li>Qumash.kz, "Не канает: казахстанка мучила и материла кошку в эфире TikTok," 17 October 2026. <a href="https://qumash.kz/news/ne-kanaet-kazahstanka-muchila-i-materila-koshku-v-efire-tiktok/">qumash.kz</a></li>
+    <li>Zakon.kz, "Мучили кошку в прямом эфире за донаты: полиция отреагировала на резонансное видео," 22 September 2026. <a href="https://www.zakon.kz/obshestvo/6532357-muchili-koshku-v-pryamom-efire-za-donaty-politsiya-otreagirovala-na-rezonansnoe-video.html">zakon.kz</a></li>
+    <li>Tengrinews.kz, "Глава МВД высказался о легких наказаниях для живодеров." <a href="https://tengrinews.kz/kazakhstan_news/glava-mvd-vyiskazalsya-o-legkih-nakazaniyah-dlya-jivoderov-404886/">tengrinews.kz</a></li>
+    <li>Finance.kz, animal cruelty cases 2025. <a href="https://finance.kz/news/almaty-ugolovnoe-delo-zhestokoe-obrashchenie-zhivotnye-2026">finance.kz</a></li>
+    <li>BEARR Trust / Vlast.kz, "How Kazakhstan is dealing with domestic violence" (Article 73 cruelty data), 7 July 2026. <a href="https://bearr.org/regional-news/how-kazakhstan-is-dealing-with-domestic-violence/">bearr.org</a></li>
+    <li>World Organisation for Animal Health (WOAH), Kazakhstan country report, 2023. <a href="https://rr-europe.woah.org/app/uploads/2023/10/09_sdwe4_kazakhstan_en.pdf">rr-europe.woah.org</a></li>
+    <li>Global Voices, "Kazakhstan's stray animal reforms reignite debate over public safety and humane policies," 8 June 2026. <a href="https://globalvoices.org/2026/06/08/kazakhstans-stray-animal-reforms-reignite-debate-over-public-safety-and-humane-policy/">globalvoices.org</a></li>
+    <li>Tengrinews.kz, "Казахстанцы просят правительство защитить бездомных животных" (Shymkent 41 million tenge). <a href="https://tengrinews.kz/kazakhstan_news/kazaxstancy-prosiat-pravitelstvo-zashhitit-bezdomnyx-355560/">tengrinews.kz</a></li>
+    <li>CABAR.asia, "Animal control in Kazakhstan: the flawed mechanism." <a href="https://cabar.asia/en/animal-control-in-kazakhstan-the-flawed-mechanism">cabar.asia</a></li>
+    <li>Legal responsibility for animal cruelty, cal.mnu.kz. <a href="https://cal.mnu.kz/page45979693.html">cal.mnu.kz</a></li>
+    <li>Addington, L. and Randour, M. L. (2024). "Exploring the Link Between Animal Cruelty and Intimate Partner and Family Violence." <em>Journal of Family Violence</em>. DOI 10.1007/s10896-024-00684-1. <a href="https://link.springer.com/article/10.1007/s10896-024-00684-1">springer.com</a></li>
+    <li>Turner, N. (2000). "Animal Abuse and the Link to Domestic Violence." <em>Police Chief</em>, 67(6): 28-30. <a href="https://ojp.gov/ncjrs/virtual-library/abstracts/animal-abuse-and-link-domestic-violence">ojp.gov</a></li>
+    <li>American University School of Public Affairs, "Exploring the Link." <a href="https://www.american.edu/spa/news/exploring-link-animal-cruelty-family-violence.cfm">american.edu</a></li>
+    <li>UN Women, "Ending domestic violence in Kazakhstan: stories from survivors and allies." <a href="https://www.unwomen.org/en/news-stories/feature-story/2025/07/ending-domestic-violence-in-kazakhstan-stories-from-survivors-and-allies">unwomen.org</a></li>
+    <li>The Florida Bar Journal, "The Growing Trend of Animal-Abuser Registries." <a href="https://www.floridabar.org/the-florida-bar-journal/the-growing-trend-of-animal-abuser-registries/">floridabar.org</a></li>
+    <li>Harvard Law Review (2021), "Palliative Animal Law: The War on Animal Cruelty," 134 Harv. L. Rev. F. 250. <a href="https://harvardlawreview.org/2021/03/palliative-animal-law-the-war-on-animal-cruelty/">harvardlawreview.org</a></li>
+    <li>Kamin, S. (2022). "Against a 'War on Animal Cruelty.'" In <em>Carceral Logics beyond Incarceration</em>, Cambridge University Press. <a href="https://resolve.cambridge.org/core/services/aop-cambridge-core/content/view/8C27A992BA4BF31278C4E0016F90E95F/9781108843584c7_128-143.pdf/against-a-war-on-animal-cruelty.pdf">cambridge.org</a></li>
+    <li>ASPCA, "Position Statement on Animal Abuser Registries." <a href="https://www.aspca.org/about-us/aspca-policy-and-position-statements/position-statement-animal-abuser-registries">aspca.org</a></li>
+    <li>ePetition.kz, Petition No. П-2026-00000313, "Остановите убийства животных: за гуманный закон!" published 8 May 2026, addressed to the Ministry of Ecology and Natural Resources of the Republic of Kazakhstan. <a href="https://epetition.kz/petition/f83ddff7-4a1a-4dd6-8ffe-6541814072d6">epetition.kz</a></li>
+    <li>CABAR.asia, on Georgia's single database of stray animals (reference 19 above).</li>
+    <li>International Journal for Crime, Justice and Social Democracy (2022), critique of FBI NIBRS animal-cruelty data. <a href="https://classic.austlii.edu.au/au/journals/IntJlCrimJustSocDem/2022/23.html">austlii.edu.au</a></li>
+    <li>Law of the Republic of Kazakhstan No. 230-VIII "On Artificial Intelligence" (signed November 2025, in force 1 January 2026).</li>
+  </ol>
+</div>
+
+</main>
+
+<footer>
+  It's Only Some Animal · by Love · PLS 519 · Nazarbayev University · November 2026
+</footer>
+
+</body>
+</html>
